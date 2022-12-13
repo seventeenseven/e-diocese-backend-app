@@ -1,0 +1,6 @@
+env: flex
+runtime: nodejs
+# Comment below before pushing to sandbox
+network:
+  name: artisans-network
+  subnetwork_name: app-engine-network

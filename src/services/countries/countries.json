@@ -1,0 +1,80 @@
+{
+  "BJ": {
+    "name": "Benin",
+    "native": "Bénin",
+    "phone": "229",
+    "continent": "AF",
+    "capital": "Porto-Novo",
+    "currency": "XOF",
+    "languages": [
+      "fr"
+    ]
+  },
+  "TG": {
+    "name": "Togo",
+    "native": "Togo",
+    "phone": "228",
+    "continent": "AF",
+    "capital": "Lomé",
+    "currency": "XOF",
+    "languages": [
+      "fr"
+    ]
+  },
+  "ML": {
+    "name": "Mali",
+    "native": "Mali",
+    "phone": "223",
+    "continent": "AF",
+    "capital": "Bamako",
+    "currency": "XOF",
+    "languages": [
+      "fr"
+    ]
+  },
+  "SN": {
+    "name": "Senegal",
+    "native": "Sénégal",
+    "phone": "221",
+    "continent": "AF",
+    "capital": "Dakar",
+    "currency": "XOF",
+    "languages": [
+      "fr"
+    ]
+  },
+  "GH": {
+    "name": "Ghana",
+    "native": "Ghana",
+    "phone": "233",
+    "continent": "AF",
+    "capital": "Accra",
+    "currency": "GHS",
+    "languages": [
+      "en"
+    ]
+  },
+  "CI": {
+    "name": "Ivory Coast",
+    "native": "Côte d'Ivoire",
+    "phone": "225",
+    "continent": "AF",
+    "capital": "Yamoussoukro",
+    "currency": "XOF",
+    "languages": [
+      "fr"
+    ]
+  },
+  "CM": {
+    "name": "Cameroon",
+    "native": "Cameroon",
+    "phone": "237",
+    "continent": "AF",
+    "capital": "Yaoundé",
+    "currency": "XAF",
+    "languages": [
+      "en",
+      "fr"
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+import Session from '~/models/session'
+
+export default async ({ user, params }, res, next) => {
+  try {
+    await Session.logoutAdmin(params.id, user.id)
+    return res.json({
+      success: true
+    })
+  } catch (err) {
+    return next(err)
+  }
+}

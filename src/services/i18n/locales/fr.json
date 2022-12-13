@@ -1,0 +1,17 @@
+{
+	"userNotFound": "Utilisateur introuvable",
+  "invalidIpAddress" : "Adresse ip invalide",
+  "sessionNotFound" : "Session introuvable",
+  "requestForbidden" : "Requête interdite",
+  "incorrectOldPassword" : "Ancien mot de passe incorrecte",
+  "userWithSameEmailError" : "Un utilisateur avec cette addresse email existe déjà",
+  "codeExpired": "Code expiré",
+  "incorrectCode": "Code incorrect",
+  "emailTitleConfirmation": "Code de confirmation de l'adresse email",
+  "sendEmailConfirmationCodeError" : "Impossible d'envoyer le code de vérification pour le moment, veuillez réessayer plus tard",
+  "userEmailUnVerified" : "Veuillez vérifier votre adresse email avant de vous connecter",
+  "verifiedAccountAlreadyAssociated" : "Un compte est déjà associé à cette adresse email",
+  "unverifiedAccountAlreadyAssociated" : "Un compte est déjà associé à cette adresse email. Un code de vérification vous y a été envoyé",
+  "accountAlreadyVerified" : "Votre compte est déjà vérifié. Veuillez vous connecter",
+  "userPhoneExist" : "Ce numéro de téléphone est déjà associé à un compte"
+}

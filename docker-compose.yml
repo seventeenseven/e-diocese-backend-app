@@ -1,0 +1,17 @@
+version: "2"
+services:
+  app:
+    container_name: e-diocese-backend_app
+    restart: always
+    build: .
+    command: npm run dev
+    env_file:
+    - .env
+    ports:
+      - "8080:8080"
+    depends_on:
+      - "mongo"
+  mongo: 
+    image: "mongo"
+    ports: 
+      - "27017:27017"      
