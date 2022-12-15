@@ -8,6 +8,7 @@ export default async ({ user, query }, res, next) => {
       filter = -1
     }
     let videos
+    const ville = typeof user !== 'boolean' ? user.ville : 'abidjan'
 
     if (query.limit !== '') {
       videos = await Video.aggregate([
@@ -26,7 +27,7 @@ export default async ({ user, query }, res, next) => {
         },
         {
           $match: {
-            'churches.ville': { $regex: user != null ? user.ville : 'abidjan', $options: 'i' }
+            'churches.ville': { $regex: ville, $options: 'i' }
           }
         },
         {
@@ -53,7 +54,7 @@ export default async ({ user, query }, res, next) => {
         },
         {
           $match: {
-            'churches.ville': { $regex: user != null ? user.ville : 'abidjan', $options: 'i' }
+            'churches.ville': { $regex: ville, $options: 'i' }
           }
         },
         {

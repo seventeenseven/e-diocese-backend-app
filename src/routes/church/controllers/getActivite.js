@@ -1,6 +1,6 @@
 import Activite from '../../../models/activite'
 
-export default async ({ user, query }, res, next) => {
+export default async ({ query, user }, res, next) => {
   try {
     let filter = 1
 
@@ -9,6 +9,8 @@ export default async ({ user, query }, res, next) => {
     }
 
     let activites
+
+    const ville = typeof user !== 'boolean' ? user.ville : 'abidjan'
 
     if (query.limit !== '') {
       activites = await Activite.aggregate([
@@ -27,7 +29,7 @@ export default async ({ user, query }, res, next) => {
         },
         {
           $match: {
-            'churches.ville': { $regex: user != null ? user.ville : 'abidjan', $options: 'i' }
+            'churches.ville': { $regex: ville, $options: 'i' }
           }
         },
         {
@@ -54,7 +56,7 @@ export default async ({ user, query }, res, next) => {
         },
         {
           $match: {
-            'churches.ville': { $regex: user != null ? user.ville : 'abidjan', $options: 'i' }
+            'churches.ville': { $regex: ville, $options: 'i' }
           }
         },
         {

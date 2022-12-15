@@ -51,8 +51,8 @@ router.get('/similar/:id',
   getSimilarChurch)
 
 router.get('/activites/get',
-  query(),
   token({ required: false }),
+  query(),
   getActivite)
 
 router.get('/activites-similar/:id',
@@ -165,7 +165,8 @@ router.post(
 )
 
 router.post('/near',
-  token({ required: true }),
+  master(),
+  query(),
   body({
     // nom: {
     //   type: String

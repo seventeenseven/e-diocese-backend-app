@@ -10,6 +10,8 @@ export default async ({ user, query }, res, next) => {
 
     let news
 
+    const ville = typeof user !== 'boolean' ? user.ville : 'abidjan'
+
     if (query.limit !== '') {
       news = await News.aggregate([
         {
@@ -27,7 +29,7 @@ export default async ({ user, query }, res, next) => {
         },
         {
           $match: {
-            'churches.ville': { $regex: user != null ? user.ville : 'abidjan', $options: 'i' }
+            'churches.ville': { $regex: ville, $options: 'i' }
           }
         },
         {
@@ -54,7 +56,7 @@ export default async ({ user, query }, res, next) => {
         },
         {
           $match: {
-            'churches.ville': { $regex: user != null ? user.ville : 'abidjan', $options: 'i' }
+            'churches.ville': { $regex: ville, $options: 'i' }
           }
         },
         {
