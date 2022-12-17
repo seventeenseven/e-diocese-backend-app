@@ -34,6 +34,11 @@ const priereSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: 'Transaction',
       required: true
+    },
+    church: {
+      type: Schema.Types.ObjectId,
+      ref: 'Church',
+      required: true
     }
   },
   {

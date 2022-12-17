@@ -15,6 +15,10 @@ export const prayerDto = {
   description: {
     type: String,
     required: true
+  },
+  church: {
+    type: String,
+    required: true
   }
   // currency: {
   //   type: String

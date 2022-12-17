@@ -107,6 +107,8 @@ churchSchema.statics = {
   }
 }
 
+churchSchema.index({ 'location': '2dsphere' })
+
 const model = mongoose.model('Church', churchSchema)
 
 export const schema = model.schema
