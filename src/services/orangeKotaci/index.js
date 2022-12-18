@@ -1,5 +1,4 @@
 
-import { OrangeKotaciError } from './error'
 import request from 'request-promise'
 import { orangeKotaci } from '../../config'
 
@@ -10,6 +9,7 @@ export const sendCode = async ({ to, code }) =>
     uri: `${host}/ediocese/sendSms.php?mobilenumber=${to}&smscode=${code}`,
     method: 'GET',
     json: true
-  }).catch((err) =>
-    Promise.reject(new OrangeKotaciError('send sms error', err))
+  }).catch((err) => {
+    console.error('send sms error', err)
+  }
   )

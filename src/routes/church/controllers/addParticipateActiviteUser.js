@@ -1,5 +1,4 @@
 import ParticipateActivity from '~/models/participateActivity'
-import { HttpError } from '~/services/error'
 
 export default async ({ bodymen: { body }, user }, res, next) => {
   try {
@@ -8,8 +7,14 @@ export default async ({ bodymen: { body }, user }, res, next) => {
       user: user.id
     })
 
+    // return ParticipateActivity.findByIdAndDelete(sessionId)
+
     if (getParticipate != null) {
-      throw new HttpError(400, 'Vous êtes déjà inscrit à cette activité')
+      await ParticipateActivity.findByIdAndDelete(getParticipate.id)
+      return res.json({
+        success: true,
+        message: 'Vous ne participez plus à cette activité'
+      })
     }
 
     const refactBody = { ...body, user: user.id }

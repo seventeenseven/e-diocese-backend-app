@@ -19,9 +19,7 @@ const participateActivitySchema = new Schema(
 )
 
 participateActivitySchema.methods = {
-
 }
-
 participateActivitySchema.statics = {
   async createParticipateActivite (favoris) {
     return this.create(favoris)
