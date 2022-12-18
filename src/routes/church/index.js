@@ -235,6 +235,9 @@ router.post(
   body({
     amount: {
       type: Number
+    },
+    church: {
+      type: String
     }
   }),
   sendDonation

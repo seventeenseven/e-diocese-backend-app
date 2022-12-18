@@ -46,6 +46,9 @@ const config = {
       authToken: requireProcessEnv('TWILIO_AUTH_TOKEN'),
       sendNumber: requireProcessEnv('TWILIO_SEND_NUMBER')
     },
+    orangeKotaci: {
+      host: 'https://kota-ci.com'
+    },
     mail: {
       user: requireProcessEnv('MAIL_USER'),
       pass: requireProcessEnv('MAIL_PASS'),

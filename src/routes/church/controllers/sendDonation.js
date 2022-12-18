@@ -1,4 +1,5 @@
 import Transaction from '~/models/transaction'
+import Donation from '~/models/donation'
 import * as cinetpay from '../../../services/cinetpay'
 
 export default async ({ bodymen: { body }, user }, res, next) => {
@@ -8,6 +9,13 @@ export default async ({ bodymen: { body }, user }, res, next) => {
       amount: body.amount,
       currency: user.currency,
       phone: user.phone
+    })
+
+    const donation = await Donation.createDonation({
+      amount: body.amount,
+      church: body.church,
+      user: user.id,
+      transaction: transaction.id
     })
 
     const init = await cinetpay.initiatePayment({
@@ -22,6 +30,7 @@ export default async ({ bodymen: { body }, user }, res, next) => {
     return res.json({
       success: true,
       transaction,
+      donation,
       paymentUrl: init.data.payment_url
     })
   } catch (err) {

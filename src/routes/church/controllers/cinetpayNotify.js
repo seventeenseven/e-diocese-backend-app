@@ -2,6 +2,7 @@ import Transaction from '../../../models/transaction'
 import User from '../../../models/user'
 import * as cinetpay from '../../../services/cinetpay'
 import Priere from '~/models/priere'
+import Donation from '~/models/donation'
 
 export default async (req, res, next) => {
   let transaction
@@ -55,7 +56,15 @@ export default async (req, res, next) => {
 
     const priere = await Priere.findOne({ transaction: req.body.cpm_trans_id })
 
-    await priere.pay()
+    const donation = await Donation.findOne({ transaction: req.body.cpm_trans_id })
+
+    if (priere != null) {
+      await priere.pay()
+    }
+
+    if (donation != null) {
+      await donation.pay()
+    }
 
     await transaction.pay()
 

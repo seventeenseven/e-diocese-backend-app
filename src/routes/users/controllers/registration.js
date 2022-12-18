@@ -1,6 +1,6 @@
 import User from '~/models/user'
 // import { sign } from '~/services/jwt'
-import { sendCode } from '../../../services/twilio'
+import { sendCode } from '../../../services/orangeKotaci'
 // import publicIp from 'public-ip'
 // import Session from '~/models/session'
 
@@ -27,7 +27,7 @@ export default async ({ bodymen: { body }, useragent, headers }, res, next) => {
     //   })
     // })
 
-    // await sendCode({ to: body.phone, code })
+    await sendCode({ to: body.phone, code })
     // if (user.userExistAndUnverified) {
     //   return res.json({ success: true, message: i18n.__('unverifiedAccountAlreadyAssociated') })
     // }
