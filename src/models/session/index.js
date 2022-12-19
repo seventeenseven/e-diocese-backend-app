@@ -291,9 +291,9 @@ sessionSchema.statics = {
     }
   },
 
-  async createAdminSession (ipAddress, userAgent, { email, password, register = false }) {
-    const user = await Admin.findByEmail(email)
-    const church = await Church.findByEmail(email)
+  async createAdminSession (ipAddress, userAgent, { identifiant, password, register = false }) {
+    const user = await Admin.findByIdentifiant(identifiant)
+    const church = await Church.findByIdentifiant(identifiant)
 
     if (!isIP(ipAddress)) {
       throw new HttpError(400, i18n.__('invalidIpAddress'))
@@ -332,7 +332,11 @@ sessionSchema.statics = {
     if (!session) {
       throw new HttpError(404, i18n.__('sessionNotFound'))
     }
-    if (adminId.toString() !== session.admin.toString()) {
+    if (session.admin !== null && adminId.toString() !== session.admin.toString()) {
+      throw new HttpError(403, i18n.__('requestForbidden'))
+    }
+
+    if (session.church !== null && adminId.toString() !== session.church.toString()) {
       throw new HttpError(403, i18n.__('requestForbidden'))
     }
     return this.findByIdAndDelete(sessionId)

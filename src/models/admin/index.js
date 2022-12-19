@@ -17,6 +17,10 @@ const adminSchema = new Schema(
       trim: true,
       default: null
     },
+    isSuperAdmin: {
+      type: Boolean,
+      default: true
+    },
     picture: {
       type: String,
       default: null
@@ -66,6 +70,7 @@ adminSchema.methods = {
       'id',
       'createdAt',
       'updatedAt',
+      'isSuperAdmin',
       'firstName',
       'lastName',
       'picture',

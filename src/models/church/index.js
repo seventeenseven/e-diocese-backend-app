@@ -1,5 +1,6 @@
 import mongoose, { Schema } from 'mongoose'
 import { string } from '~/helpers'
+import { hashPlainPassword } from '~/services/tokens'
 
 const churchSchema = new Schema(
   {
@@ -12,6 +13,10 @@ const churchSchema = new Schema(
       type: String,
       trim: true,
       default: null
+    },
+    isSuperAdmin: {
+      type: Boolean,
+      default: false
     },
     image: {
       type: String,
@@ -74,6 +79,7 @@ churchSchema.methods = {
       'id',
       'createdAt',
       'updatedAt',
+      'isSuperAdmin',
       'nom',
       'description',
       'image',
@@ -103,7 +109,8 @@ churchSchema.statics = {
     return this.findOne({ identifiant: id })
   },
   async createChurch (church) {
-    return this.create(church)
+    const hashedPassword = hashPlainPassword(church.password)
+    return this.create({...church, password: hashedPassword})
   }
 }
 

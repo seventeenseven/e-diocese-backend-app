@@ -21,6 +21,18 @@ const createChurchDto = {
   },
   location: {
     coordinates: [Number]
+  },
+  email: {
+    type: String
+  },
+  pays: {
+    type: String
+  },
+  identifiant: {
+    type: String
+  },
+  password: {
+    type: String
   }
 }
 

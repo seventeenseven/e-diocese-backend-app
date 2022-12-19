@@ -2,7 +2,12 @@ import News from '../../../../models/news'
 
 export default async ({ user }, res, next) => {
   try {
-    const news = await News.find({})
+    let news
+    if (!user.isSuperAdmin) {
+      news = await News.find({ church: user.id })
+    } else {
+      news = await News.find({})
+    }
     return res.json({
       success: true,
       news

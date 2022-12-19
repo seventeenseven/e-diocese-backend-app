@@ -59,7 +59,10 @@ const { email, phone } = schema.tree
 router.post(
   '/login',
   body({
-    email,
+    identifiant: {
+      type: String,
+      required: true
+    },
     password: {
       type: String,
       required: true
