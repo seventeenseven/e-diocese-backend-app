@@ -1,14 +1,14 @@
-import Priere from '../../../../models/priere'
+import Donation from '../../../../models/donation'
 
 export default async ({ user, params }, res, next) => {
   try {
-    const priere = await Priere.findById(params.id)
+    const donation = await Donation.findById(params.id)
       .populate('user')
       .populate('church')
       .lean()
     return res.json({
       success: true,
-      ...priere
+      ...donation
     })
   } catch (err) {
     return next(err)

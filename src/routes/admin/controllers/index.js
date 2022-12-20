@@ -44,6 +44,8 @@ import deleteReading from './readingDay/deleteReading'
 import getReading from './readingDay/getReading'
 import getReadings from './readingDay/getReadings'
 import putReading from './readingDay/putReading'
+import getDonation from './donation/getDonation'
+import getDonations from './donation/getDonations'
 
 export {
   login,
@@ -91,5 +93,7 @@ export {
   deleteReading,
   getReading,
   getReadings,
-  putReading
+  putReading,
+  getDonation,
+  getDonations
 }

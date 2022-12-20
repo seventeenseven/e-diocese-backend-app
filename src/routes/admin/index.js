@@ -39,7 +39,9 @@ import { login, logout, registration, getMe, updateMe,
   deleteReading,
   getReading,
   getReadings,
-  putReading
+  putReading,
+  getDonation,
+  getDonations
 } from './controllers'
 import { middleware as body } from 'bodymen'
 import { Router } from 'express'
@@ -400,5 +402,15 @@ router.post('/reading',
   }),
   createReading
 )
+
+/** Donation */
+
+router.get('/user-donations',
+  tokenAdmin({ required: true }),
+  getDonations)
+
+router.get('/user-donations/:id',
+  tokenAdmin({ required: true }),
+  getDonation)
 
 export default router

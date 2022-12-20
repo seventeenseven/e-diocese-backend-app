@@ -13,6 +13,11 @@ export default async ({ bodymen: { body }, user, params }, res, next) => {
     if (userWithSameEmail && userWithSameEmail.email !== user.email) {
       throw new HttpError(400, i18n.__('userWithSameEmailError'))
     }
+
+    const userWithSamePhoneNumber = await User.findByPhone(body.phone)
+    if (userWithSamePhoneNumber && userWithSamePhoneNumber.phone !== user.phone) {
+      throw new HttpError(400, 'Un utilisateur avec cette adresse email existe déjà')
+    }
     const newUser = Object.assign(user.view(true), {...body, picture: user.picture})
     newUser.save()
 
