@@ -248,11 +248,11 @@ router.get('/participate/activities',
   getUserParticipateActivity)
 
 router.get('/reading-day/get',
-  master(),
+  token({ required: false }),
   getReadingDay)
 
 router.get('/reading-day/:id',
-  master(),
+  token({ required: false }),
   getOnlyReadingDay)
 
 export default router
