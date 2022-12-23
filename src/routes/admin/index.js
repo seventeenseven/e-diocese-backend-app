@@ -93,6 +93,10 @@ router.post(
       default: null
     },
     email,
+    identifiant: {
+      type: String,
+      required: true
+    },
     phone,
     password: {
       type: String,
