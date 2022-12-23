@@ -41,7 +41,8 @@ import { login, logout, registration, getMe, updateMe,
   getReadings,
   putReading,
   getDonation,
-  getDonations
+  getDonations,
+  getStats
 } from './controllers'
 import { middleware as body } from 'bodymen'
 import { Router } from 'express'
@@ -290,6 +291,10 @@ router.post('/users',
   body(createUserDto),
   createUser
 )
+
+router.get('/stats/get',
+  tokenAdmin({ required: true }),
+  getStats)
 
 /** DonationPrice */
 
