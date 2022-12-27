@@ -1,5 +1,6 @@
 import Church from '../../../../models/church'
 import { HttpError } from '~/services/error'
+import { hashPlainPassword } from '~/services/tokens'
 
 export default async ({ bodymen: { body }, user, params }, res, next) => {
   try {
@@ -12,6 +13,17 @@ export default async ({ bodymen: { body }, user, params }, res, next) => {
     }
 
     console.log('church', church)
+    console.log('body', body)
+
+    if (body.password && body.password !== '') {
+      const updatedPassword = hashPlainPassword(body.password)
+      body = { ...body, password: updatedPassword }
+    }
+
+    if (!body.password) {
+      body = { ...body, password: church.password }
+    }
+
     console.log('body', body)
 
     const newChurch = Object.assign(church, body)

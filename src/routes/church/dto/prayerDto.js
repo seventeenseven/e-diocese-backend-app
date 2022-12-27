@@ -8,7 +8,7 @@ export const prayerDto = {
     type: String,
     required: true
   },
-  but: {
+  periode: {
     type: String,
     required: true
   },

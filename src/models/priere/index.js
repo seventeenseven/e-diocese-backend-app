@@ -12,7 +12,7 @@ const priereSchema = new Schema(
       trim: true,
       default: null
     },
-    but: {
+    periode: {
       type: String,
       trim: true,
       default: null
