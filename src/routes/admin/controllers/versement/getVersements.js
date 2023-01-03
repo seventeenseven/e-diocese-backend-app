@@ -9,6 +9,7 @@ export default async ({ user }, res, next) => {
     }
 
     const versements = await Versement.find({})
+      .populate('church')
 
     await storeLogger({ action: 'Affichage de la liste des versements', user })
 

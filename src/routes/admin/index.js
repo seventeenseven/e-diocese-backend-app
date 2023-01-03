@@ -440,8 +440,6 @@ router.get('/getLogs/:id',
 
 /** Versement */
 
-/** ReadingDay */
-
 router.get('/versement',
   tokenAdmin({ required: true }),
   getVersements)

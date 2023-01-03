@@ -3,7 +3,9 @@ import { storeLogger } from '../../../../helpers'
 
 export default async ({ user, params }, res, next) => {
   try {
-    const versement = await Versement.findById(params.id).lean()
+    const versement = await Versement.findById(params.id)
+      .populate('church')
+      .lean()
     await storeLogger({ action: "Affichage d'un versement", user })
     return res.json({
       success: true,
