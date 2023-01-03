@@ -1,4 +1,5 @@
 import News from '../../../../models/news'
+import { storeLogger } from '../../../../helpers'
 
 export default async ({ user }, res, next) => {
   try {
@@ -8,6 +9,7 @@ export default async ({ user }, res, next) => {
     } else {
       news = await News.find({})
     }
+    await storeLogger({ action: 'Affichage de la liste des actualités', user })
     return res.json({
       success: true,
       news

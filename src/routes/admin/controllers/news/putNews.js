@@ -1,5 +1,6 @@
 import News from '../../../../models/news'
 import { HttpError } from '~/services/error'
+import { storeLogger } from '../../../../helpers'
 
 export default async ({ bodymen: { body }, user, params }, res, next) => {
   try {
@@ -9,6 +10,8 @@ export default async ({ bodymen: { body }, user, params }, res, next) => {
     }
     const newNews = Object.assign(news, body)
     newNews.save()
+
+    await storeLogger({ action: "Modification d'une actualité", user })
 
     return res.json({
       success: true,

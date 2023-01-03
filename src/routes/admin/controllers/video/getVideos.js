@@ -1,4 +1,5 @@
 import Video from '../../../../models/video'
+import { storeLogger } from '../../../../helpers'
 
 export default async ({ user }, res, next) => {
   try {
@@ -8,6 +9,8 @@ export default async ({ user }, res, next) => {
     } else {
       videos = await Video.find({})
     }
+
+    await storeLogger({ action: 'Affichage de la liste des vidéos', user })
 
     return res.json({
       success: true,

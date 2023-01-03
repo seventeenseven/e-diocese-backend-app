@@ -17,6 +17,10 @@ const priereSchema = new Schema(
       trim: true,
       default: null
     },
+    amount: {
+      type: Number,
+      required: true
+    },
     description: {
       type: String,
       default: null

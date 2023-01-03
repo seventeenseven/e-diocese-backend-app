@@ -1,4 +1,5 @@
 import ReadingDay from '../../../../models/readingDay'
+import { storeLogger } from '../../../../helpers'
 
 export default async ({ user }, res, next) => {
   try {
@@ -10,6 +11,7 @@ export default async ({ user }, res, next) => {
       readingDays = await ReadingDay.find({ church: user.id })
         .populate('church')
     }
+    await storeLogger({ action: 'Affichage de la liste des lectures du jour', user })
     return res.json({
       success: true,
       readingDays

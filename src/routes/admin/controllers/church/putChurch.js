@@ -1,6 +1,7 @@
 import Church from '../../../../models/church'
 import { HttpError } from '~/services/error'
 import { hashPlainPassword } from '~/services/tokens'
+import { storeLogger } from '../../../../helpers'
 
 export default async ({ bodymen: { body }, user, params }, res, next) => {
   try {
@@ -28,6 +29,8 @@ export default async ({ bodymen: { body }, user, params }, res, next) => {
 
     const newChurch = Object.assign(church, body)
     newChurch.save()
+
+    await storeLogger({ action: "Modification d'une église", user })
 
     return res.json({
       success: true,

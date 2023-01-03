@@ -1,4 +1,5 @@
 import Activite from '../../../../models/activite'
+import { storeLogger } from '../../../../helpers'
 
 export default async ({ user }, res, next) => {
   try {
@@ -8,6 +9,8 @@ export default async ({ user }, res, next) => {
     } else {
       activites = await Activite.find({})
     }
+
+    await storeLogger({ action: 'Affichage de la liste des activités', user })
 
     return res.json({
       success: true,

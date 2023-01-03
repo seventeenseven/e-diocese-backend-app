@@ -12,7 +12,11 @@ export default async ({ bodymen: { body }, user }, res, next) => {
       currency: user.currency,
       phone: user.phone
     })
-    const refactBody = { ...body, user: user.id, transaction: transaction.id }
+    const refactBody = { ...body,
+      user: user.id,
+      transaction: transaction.id,
+      amount: price.amount }
+
     const priere = await Priere.createPriere(refactBody)
 
     const init = await cinetpay.initiatePayment({

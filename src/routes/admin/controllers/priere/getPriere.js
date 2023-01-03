@@ -1,4 +1,5 @@
 import Priere from '../../../../models/priere'
+import { storeLogger } from '../../../../helpers'
 
 export default async ({ user, params }, res, next) => {
   try {
@@ -6,6 +7,9 @@ export default async ({ user, params }, res, next) => {
       .populate('user')
       .populate('church')
       .lean()
+
+    await storeLogger({ action: "Affichage d'une intention de prière", user })
+
     return res.json({
       success: true,
       ...priere

@@ -1,5 +1,6 @@
 import Activite from '../../../../models/activite'
 import { HttpError } from '~/services/error'
+import { storeLogger } from '../../../../helpers'
 
 export default async ({ bodymen: { body }, user, params }, res, next) => {
   try {
@@ -10,6 +11,8 @@ export default async ({ bodymen: { body }, user, params }, res, next) => {
     }
     const newActivite = Object.assign(activite, body)
     newActivite.save()
+
+    await storeLogger({ action: "Modification d'une activité", user })
 
     return res.json({
       success: true,

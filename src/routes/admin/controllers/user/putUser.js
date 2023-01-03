@@ -1,6 +1,7 @@
 import User from '../../../../models/user'
 import { HttpError } from '~/services/error'
 import i18n from '~/services/i18n'
+import { storeLogger } from '../../../../helpers'
 
 export default async ({ bodymen: { body }, user, params }, res, next) => {
   try {
@@ -20,6 +21,8 @@ export default async ({ bodymen: { body }, user, params }, res, next) => {
     }
     const newUser = Object.assign(user.view(true), {...body, picture: user.picture})
     newUser.save()
+
+    await storeLogger({ action: "Modification des informations d'un utilisateur", user })
 
     return res.json({
       success: true,

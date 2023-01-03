@@ -1,6 +1,7 @@
 import User from '../../../../models/user'
 import ParticipateActivity from '../../../../models/participateActivity'
 import { HttpError } from '~/services/error'
+import { storeLogger } from '../../../../helpers'
 
 export default async ({ user, params }, res, next) => {
   try {
@@ -15,6 +16,9 @@ export default async ({ user, params }, res, next) => {
     if (findUserParticipateActivity !== null) {
       associatedUserParticipateActivity = await findUserParticipateActivity.deleteOne({ _id: findUserParticipateActivity.id })
     }
+
+    await storeLogger({ action: "Suppression d'un utilisateur", user })
+
     return res.json({
       success: true,
       user: userBeforeDelete,

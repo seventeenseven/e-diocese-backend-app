@@ -1,5 +1,6 @@
 import Video from '../../../../models/video'
 import { HttpError } from '~/services/error'
+import { storeLogger } from '../../../../helpers'
 
 export default async ({ bodymen: { body }, user, params }, res, next) => {
   try {
@@ -9,6 +10,8 @@ export default async ({ bodymen: { body }, user, params }, res, next) => {
     }
     const newVideo = Object.assign(video, body)
     newVideo.save()
+
+    await storeLogger({ action: "Modification d'une vidéo", user })
 
     return res.json({
       success: true,

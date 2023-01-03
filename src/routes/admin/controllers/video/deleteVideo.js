@@ -1,6 +1,7 @@
 import Video from '../../../../models/video'
 import VideoFavoris from '../../../../models/videoFavoris'
 import { HttpError } from '~/services/error'
+import { storeLogger } from '../../../../helpers'
 
 export default async ({ user, params }, res, next) => {
   try {
@@ -15,6 +16,7 @@ export default async ({ user, params }, res, next) => {
     if (findVideoFavoris !== null) {
       associatedVideoFavoris = await findVideoFavoris.deleteOne({ _id: findVideoFavoris.id })
     }
+    await storeLogger({ action: "Suppression d'une vidéo", user })
     return res.json({
       success: true,
       video: videoBeforeDelete,

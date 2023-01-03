@@ -42,7 +42,13 @@ import { login, logout, registration, getMe, updateMe,
   putReading,
   getDonation,
   getDonations,
-  getStats
+  getStats,
+  getAdminLogs,
+  getOnlyAdminLogs,
+  createVersement,
+  deleteVersement,
+  getVersement,
+  getVersements
 } from './controllers'
 import { middleware as body } from 'bodymen'
 import { Router } from 'express'
@@ -421,5 +427,54 @@ router.get('/user-donations',
 router.get('/user-donations/:id',
   tokenAdmin({ required: true }),
   getDonation)
+
+/** Logs */
+
+router.get('/getLogs',
+  tokenAdmin({ required: true }),
+  getAdminLogs)
+
+router.get('/getLogs/:id',
+  tokenAdmin({ required: true }),
+  getOnlyAdminLogs)
+
+/** Versement */
+
+/** ReadingDay */
+
+router.get('/versement',
+  tokenAdmin({ required: true }),
+  getVersements)
+
+router.get('/versement/:id',
+  tokenAdmin({ required: true }),
+  getVersement)
+
+router.delete('/versement/:id',
+  tokenAdmin({ required: true }),
+  deleteVersement)
+
+router.post('/versement',
+  tokenAdmin({ required: true }),
+  body({
+    amount: {
+      type: Number,
+      required: true
+    },
+    church: {
+      type: String,
+      required: true
+    },
+    month: {
+      type: Date,
+      required: true
+    },
+    type: {
+      type: String,
+      required: true
+    }
+  }),
+  createVersement
+)
 
 export default router

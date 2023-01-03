@@ -20,7 +20,4 @@ export const prayerDto = {
     type: String,
     required: true
   }
-  // currency: {
-  //   type: String
-  // }
 }

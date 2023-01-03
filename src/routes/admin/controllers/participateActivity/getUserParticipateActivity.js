@@ -1,4 +1,5 @@
 import ParticipateActivity from '../../../../models/participateActivity'
+import { storeLogger } from '../../../../helpers'
 
 export default async ({ user }, res, next) => {
   try {
@@ -16,6 +17,8 @@ export default async ({ user }, res, next) => {
       console.log('participateGetForFilter', participateGetForFilter)
       console.log('participateActivity', participateActivity)
     }
+
+    await storeLogger({ action: 'Affichage de liste des utilisateurs qui participent aux activités', user })
 
     return res.json({
       success: true,

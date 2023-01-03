@@ -47,6 +47,12 @@ import putReading from './readingDay/putReading'
 import getDonation from './donation/getDonation'
 import getDonations from './donation/getDonations'
 import getStats from './user/getStats'
+import getAdminLogs from './getAdminLogs'
+import getOnlyAdminLogs from './getOnlyAdminLogs'
+import createVersement from './versement/createVersement'
+import deleteVersement from './versement/deleteVersement'
+import getVersement from './versement/getVersement'
+import getVersements from './versement/getVersements'
 
 export {
   login,
@@ -97,5 +103,11 @@ export {
   putReading,
   getDonation,
   getDonations,
-  getStats
+  getStats,
+  getAdminLogs,
+  getOnlyAdminLogs,
+  createVersement,
+  deleteVersement,
+  getVersement,
+  getVersements
 }

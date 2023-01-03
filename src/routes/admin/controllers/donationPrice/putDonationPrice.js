@@ -1,5 +1,6 @@
 import DonationPrice from '../../../../models/donationPrice'
 import { HttpError } from '~/services/error'
+import { storeLogger } from '../../../../helpers'
 
 export default async ({ bodymen: { body }, user, params }, res, next) => {
   try {
@@ -9,6 +10,8 @@ export default async ({ bodymen: { body }, user, params }, res, next) => {
     }
     const newDonationPrice = Object.assign(donationPrice, body)
     newDonationPrice.save()
+
+    await storeLogger({ action: "Modification du prix d'un don", user })
 
     return res.json({
       success: true,
