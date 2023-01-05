@@ -1,4 +1,5 @@
-import Versement from '../../../../models/versement'
+import Priere from '../../../../models/priere'
+import Donation from '../../../../models/donation'
 import { HttpError } from '~/services/error'
 import moment from 'moment'
 import mongoose from 'mongoose'
@@ -19,37 +20,68 @@ export default async ({ bodymen: { body }, user }, res, next) => {
     const monthStart = new Date(first)
     const monthEnd = new Date(second)
 
-    const findVersement = await Versement.aggregate([
-      {
-        $lookup: {
-          from: 'churches',
-          localField: 'church',
-          foreignField: '_id',
-          as: 'churches'
-        }
-      },
-      {
-        $unwind: {
-          path: '$churches'
-        }
-      },
-      {
-        $match: { $and:
-                  [
-                    {type: body.type},
-                    {'churches._id': mongoose.Types.ObjectId(body.church)},
-                    { createdAt: { $gte: monthStart, $lt: monthEnd } }
-                  ] }
-      },
-      {
-        $group: { _id: null, sum_val: { $sum: '$amount' } }
-      }
-    ])
-
     let amountVersement = 0
 
-    if (findVersement.length > 0) {
-      amountVersement = findVersement[0].sum_val
+    if (body.type === 'priere') {
+      const priere = await Priere.aggregate([
+        {
+          $lookup: {
+            from: 'churches',
+            localField: 'church',
+            foreignField: '_id',
+            as: 'churches'
+          }
+        },
+        {
+          $unwind: {
+            path: '$churches'
+          }
+        },
+        {
+          $match: { $and:
+                    [
+                      {'churches._id': mongoose.Types.ObjectId(body.church)},
+                      { createdAt: { $gte: monthStart, $lt: monthEnd } }
+                    ] }
+        },
+        {
+          $group: {_id: '$isPaid', sum_val: {$sum: '$amount'}}
+        }
+      ])
+      const filterPriere = priere.filter(e => e._id === true)
+      if (filterPriere.length > 0) {
+        amountVersement = filterPriere[0].sum_val
+      }
+    } else {
+      const donation = await Donation.aggregate([
+        {
+          $lookup: {
+            from: 'churches',
+            localField: 'church',
+            foreignField: '_id',
+            as: 'churches'
+          }
+        },
+        {
+          $unwind: {
+            path: '$churches'
+          }
+        },
+        {
+          $match: { $and:
+                    [
+                      {'churches._id': mongoose.Types.ObjectId(body.church)},
+                      { createdAt: { $gte: monthStart, $lt: monthEnd } }
+                    ] }
+        },
+        {
+          $group: {_id: '$isPaid', sum_val: {$sum: '$amount'}}
+        }
+      ])
+      const filterDon = donation.filter(e => e._id === true)
+      if (filterDon.length > 0) {
+        amountVersement = filterDon[0].sum_val
+      }
     }
 
     return res.json({
