@@ -53,6 +53,7 @@ import createVersement from './versement/createVersement'
 import deleteVersement from './versement/deleteVersement'
 import getVersement from './versement/getVersement'
 import getVersements from './versement/getVersements'
+import calcChurchMonthVersement from './versement/calcChurchMonthVersement'
 
 export {
   login,
@@ -109,5 +110,6 @@ export {
   createVersement,
   deleteVersement,
   getVersement,
-  getVersements
+  getVersements,
+  calcChurchMonthVersement
 }

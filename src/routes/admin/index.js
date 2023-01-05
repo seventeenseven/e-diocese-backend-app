@@ -48,7 +48,8 @@ import { login, logout, registration, getMe, updateMe,
   createVersement,
   deleteVersement,
   getVersement,
-  getVersements
+  getVersements,
+  calcChurchMonthVersement
 } from './controllers'
 import { middleware as body } from 'bodymen'
 import { Router } from 'express'
@@ -473,6 +474,25 @@ router.post('/versement',
     }
   }),
   createVersement
+)
+
+router.post('/versement/calc',
+  tokenAdmin({ required: true }),
+  body({
+    church: {
+      type: String,
+      required: true
+    },
+    month: {
+      type: Date,
+      required: true
+    },
+    type: {
+      type: String,
+      required: true
+    }
+  }),
+  calcChurchMonthVersement
 )
 
 export default router
