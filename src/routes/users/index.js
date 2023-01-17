@@ -15,7 +15,8 @@ import {
   uploadImages,
   postComment,
   verifyCcodeAndReset,
-  loginOrRegisterWithGoogle
+  loginOrRegisterWithGoogle,
+  deleteAccount
 } from './controllers'
 import { middleware as body } from 'bodymen'
 import { Router } from 'express'
@@ -128,5 +129,9 @@ router.post(
   }),
   loginOrRegisterWithGoogle
 )
+
+router.delete('/delete-account/:id',
+  token(),
+  deleteAccount)
 
 export default router

@@ -15,6 +15,7 @@ import uploadImages from './uploadImages'
 import postComment from './postComment'
 import verifyCcodeAndReset from './verify-code-and-reset'
 import loginOrRegisterWithGoogle from './loginOrRegisterWithGoogle'
+import deleteAccount from './deleteAccount'
 
 export {
   registration,
@@ -33,5 +34,6 @@ export {
   uploadImages,
   postComment,
   verifyCcodeAndReset,
-  loginOrRegisterWithGoogle
+  loginOrRegisterWithGoogle,
+  deleteAccount
 }
