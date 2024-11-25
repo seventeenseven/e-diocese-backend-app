@@ -1,4 +1,7 @@
-require('module-alias/register')
-require('babel-core/register')
+import 'module-alias/register.js';
+import '@babel/register';
 
-exports = module.exports = require('./app')
+console.log("Did app run");
+
+import app from './app.js';
+export default app;

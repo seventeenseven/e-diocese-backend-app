@@ -1,5 +1,5 @@
-import Transaction from '~/models/transaction'
-import PrayerPrice from '~/models/prayerPrice'
+import Transaction from '../../../models/transaction'
+import PrayerPrice from '../../../models/prayerPrice'
 
 export default async ({ bodymen: { body }, user }, res, next) => {
   try {

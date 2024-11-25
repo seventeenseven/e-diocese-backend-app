@@ -1,6 +1,6 @@
-import { getNotifications } from './controllers'
+import { getNotifications } from './controllers/index.js'
 import { Router } from 'express'
-import { token } from '~/services/passport'
+import { token } from '../../services/passport/index.js'
 import { middleware as query } from 'querymen'
 
 const router = new Router()

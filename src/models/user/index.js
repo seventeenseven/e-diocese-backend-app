@@ -1,10 +1,11 @@
 import mongoose, { Schema } from 'mongoose'
-import { string } from '~/helpers'
-import { hashPlainPassword } from '~/services/tokens'
-import { HttpError } from '~/services/error'
-import i18n from '~/services/i18n'
+import { string } from '../../helpers'
+import { hashPlainPassword } from '../../services/tokens'
+///home/jane/Work/tuto-flutter/E-diocese/e-diocese-backend-app/src/models/user/
+import { HttpError } from '../../services/error'
+import i18n from '../../services/i18n'
 import moment from 'moment'
-import generateVerificationCode from '~/utils/generateVerificationCode'
+import generateVerificationCode from '../../utils/generateVerificationCode'
 import { getCurrencyByCountryCode } from '../../services/countries'
 
 const userSchema = new Schema(

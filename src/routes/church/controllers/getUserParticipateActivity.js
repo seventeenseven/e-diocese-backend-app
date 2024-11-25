@@ -1,4 +1,4 @@
-import ParticipateActivity from '~/models/participateActivity'
+import ParticipateActivity from '../../../models/participateActivity'
 
 export default async ({ user }, res, next) => {
   try {

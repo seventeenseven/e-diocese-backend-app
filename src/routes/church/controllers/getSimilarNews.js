@@ -1,4 +1,4 @@
-import News from '~/models/news'
+import News from '../../../models/news'
 
 export default async ({ user, params }, res, next) => {
   try {

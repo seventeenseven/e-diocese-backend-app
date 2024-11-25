@@ -9,8 +9,8 @@ import {
   storePrice,
   donationPrice,
   storeReading
-} from './controllers'
-import { master } from '~/services/passport'
+} from './controllers/index.js'
+import { master } from '../../services/passport/index.js'
 import { middleware as body } from 'bodymen'
 
 const router = new Router()

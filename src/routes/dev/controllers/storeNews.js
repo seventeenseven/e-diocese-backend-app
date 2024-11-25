@@ -1,4 +1,4 @@
-import News from '~/models/news'
+import News from '../../../models/news'
 
 export default async ({ bodymen: { body } }, res, next) => {
   try {

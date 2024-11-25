@@ -1,4 +1,4 @@
-import Church from '~/models/church'
+import Church from '../../../models/church'
 
 export default async ({ query }, res, next) => {
   try {

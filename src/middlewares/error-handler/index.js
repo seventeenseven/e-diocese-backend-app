@@ -1,6 +1,6 @@
-import errorhandler from 'errorhandler'
+import errorhandler from 'errorhandler/index.js'
 import mongoose from 'mongoose'
-import { HttpError } from '~/services/error'
+import { HttpError } from '../../services/error/index.js'
 
 export default async (err, req, res, next) => {
   let error = err

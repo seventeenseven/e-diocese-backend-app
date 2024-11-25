@@ -1,6 +1,6 @@
 import Transaction from '../../../models/transaction'
 import User from '../../../models/user'
-import { HttpError } from '~/services/error'
+import { HttpError } from '../../../services/error'
 
 export default async ({ bodymen: { body }, user }, res, next) => {
   let transaction

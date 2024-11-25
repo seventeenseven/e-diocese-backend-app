@@ -1,6 +1,6 @@
-import User from '~/models/user'
-import Image from '~/models/image'
-import Comment from '~/models/comment'
+import User from '../../../models/user'
+import Image from '../../../models/image'
+import Comment from '../../../models/comment'
 
 export default async ({ params }, res, next) => {
   try {

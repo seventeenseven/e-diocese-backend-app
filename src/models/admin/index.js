@@ -1,9 +1,9 @@
 import { compareSync } from 'bcrypt'
 import mongoose, { Schema } from 'mongoose'
-import { string } from '~/helpers'
-import { hashPlainPassword } from '~/services/tokens'
-import { HttpError } from '~/services/error'
-import i18n from '~/services/i18n'
+import { string } from '../../helpers'
+import { hashPlainPassword } from '../../services/tokens'
+import { HttpError } from '../../services/error'
+import i18n from '../../services/i18n'
 
 const adminSchema = new Schema(
   {
@@ -111,10 +111,12 @@ adminSchema.statics = {
   async createAdmin (admin) {
     const checkForUser = await this.findByEmail(admin.email)
     if (checkForUser) {
+      console.log("user mail Already exists");
       throw new HttpError(400, i18n.__('verifiedAccountAlreadyAssociated'))
     }
     const checkPhone = await this.findOne({ phone: admin.phone })
     if (checkPhone) {
+      console.log("user phone Already exists");
       throw new HttpError(400, i18n.__('userPhoneExist'))
     }
     const hashedPassword = hashPlainPassword(admin.password)

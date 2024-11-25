@@ -1,6 +1,6 @@
 import Versement from '../../../../models/versement'
 import { storeLogger } from '../../../../helpers'
-import { HttpError } from '~/services/error'
+import { HttpError } from '../../../../services/error'
 
 export default async ({ user }, res, next) => {
   try {

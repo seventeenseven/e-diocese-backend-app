@@ -1,8 +1,8 @@
-import { login, logout, sendVerificationCode } from './controllers'
+import { login, logout, sendVerificationCode } from './controllers/index.js'
 import { middleware as body } from 'bodymen'
 import { Router } from 'express'
-import { schema } from '~/models/user'
-import { token } from '~/services/passport'
+import { schema } from '../../models/user/index.js'
+import { token } from '../../services/passport/index.js'
 
 const router = new Router()
 
@@ -19,7 +19,7 @@ router.post(
     phone,
     code: {
       type: String,
-      required: true
+      required: false
     }
   }),
   login

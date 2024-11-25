@@ -1,4 +1,4 @@
-import Notification from '~/models/notification'
+import Notification from '../../../models/notification'
 
 export default async ({ user, query }, res, next) => {
   try {

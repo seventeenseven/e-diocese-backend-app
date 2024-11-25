@@ -1,4 +1,4 @@
-import ReadingDay from '~/models/readingDay'
+import ReadingDay from '../../../models/readingDay'
 
 export default async ({ bodymen: { body } }, res, next) => {
   try {

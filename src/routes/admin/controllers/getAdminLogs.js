@@ -1,4 +1,4 @@
-import Logger from '~/models/logger'
+import Logger from '../../../models/logger'
 
 export default async ({ user }, res, next) => {
   try {

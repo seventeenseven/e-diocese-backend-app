@@ -1,6 +1,6 @@
-import Admin from '~/models/admin'
-import { HttpError } from '~/services/error'
-import i18n from '~/services/i18n'
+import Admin from '../../../models/admin'
+import { HttpError } from '../../../services/error'
+import i18n from '../../../services/i18n'
 
 export default async ({ bodymen: { body }, user }, res, next) => {
   try {

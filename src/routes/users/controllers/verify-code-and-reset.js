@@ -1,8 +1,8 @@
-import { HttpError } from '~/services/error'
-import User from '~/models/user'
-import i18n from '~/services/i18n'
-import { sign } from '~/services/jwt'
-import { security } from '~/config'
+import { HttpError } from '../../../services/error'
+import User from '../../../models/user'
+import i18n from '../../../services/i18n'
+import { sign } from '../../../services/jwt'
+import { security } from '../../../config'
 
 export default async ({ bodymen: { body } }, res, next) => {
   try {

@@ -1,4 +1,4 @@
-import ActiviteFavoris from '~/models/activiteFavoris'
+import ActiviteFavoris from '../../../models/activiteFavoris'
 
 export default async ({ user }, res, next) => {
   try {

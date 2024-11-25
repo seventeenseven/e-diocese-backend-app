@@ -1,4 +1,4 @@
-import DonationPrice from '~/models/donationPrice'
+import DonationPrice from '../../../models/donationPrice'
 
 export default async ({ bodymen: { body } }, res, next) => {
   try {

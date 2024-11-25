@@ -1,8 +1,8 @@
-import { HttpError } from '~/services/error'
-import { sendMail } from '~/services/mailer'
-import i18n from '~/services/i18n'
+import { HttpError } from '../../../services/error'
+import { sendMail } from '../../../services/mailer'
+import i18n from '../../../services/i18n'
 import ejs from 'ejs'
-import { mail } from '~/config'
+import { mail } from '../../../config'
 
 export default async ({ bodymen: { body } }, res, next) => {
   try {

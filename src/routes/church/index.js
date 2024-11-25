@@ -31,13 +31,13 @@ import {
   getUserParticipateActivity,
   getOnlyReadingDay,
   getReadingDay
-} from './controllers'
+} from './controllers/index.js'
 import { Router } from 'express'
-import { token } from '~/services/passport'
+import { token } from '../../services/passport/index.js'
 import { middleware as query } from 'querymen'
 import { middleware as body } from 'bodymen'
-import { prayerDto } from './dto/prayerDto'
-import { master } from '~/services/passportAdmin'
+import { prayerDto } from './dto/prayerDto.js'
+import { master } from '../../services/passportAdmin/index.js'
 
 const router = new Router()
 

@@ -1,6 +1,6 @@
-import User from '~/models/user'
-import { HttpError } from '~/services/error'
-import i18n from '~/services/i18n'
+import User from '../../../models/user'
+import { HttpError } from '../../../services/error'
+import i18n from '../../../services/i18n'
 
 export default async ({ bodymen: { body }, user }, res, next) => {
   try {

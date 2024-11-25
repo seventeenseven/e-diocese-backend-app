@@ -1,5 +1,5 @@
 import Priere from '../../../../models/priere'
-import { HttpError } from '~/services/error'
+import { HttpError } from '../../../../services/error'
 import { storeLogger } from '../../../../helpers'
 
 export default async ({ user, params }, res, next) => {

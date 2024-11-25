@@ -1,6 +1,6 @@
 import Video from '../../../../models/video'
 import VideoFavoris from '../../../../models/videoFavoris'
-import { HttpError } from '~/services/error'
+import { HttpError } from '../../../../services/error'
 import { storeLogger } from '../../../../helpers'
 
 export default async ({ user, params }, res, next) => {

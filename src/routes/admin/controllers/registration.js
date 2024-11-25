@@ -1,4 +1,4 @@
-import Admin from '~/models/admin'
+import Admin from '../../../models/admin'
 
 export default async ({ bodymen: { body }, useragent, headers }, res, next) => {
   try {

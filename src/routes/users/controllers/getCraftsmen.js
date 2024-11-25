@@ -1,4 +1,4 @@
-import User, { UserType } from '~/models/user'
+import User, { UserType } from '../../../models/user'
 
 export default async ({ params }, res, next) => {
   try {

@@ -1,15 +1,16 @@
-
-import request from 'request-promise'
+import axios from 'axios';
 import { orangeKotaci } from '../../config'
 
 const { host } = orangeKotaci
 
 export const sendCode = async ({ to, code }) =>
-  request({
-    uri: `${host}/ediocese/sendSms.php?mobilenumber=${to}&smscode=${code}`,
-    method: 'GET',
-    json: true
-  }).catch((err) => {
-    console.error('send sms error', err)
+  {
+    try {
+    const response = await axios.get(`${host}/ediocese/sendSms.php`, {
+      params: { mobileNumber: to, sms: code }
+    });
+    console.log(response.data);
+  } catch (err) {
+    console.error('send sms error', err);
   }
-  )
+}

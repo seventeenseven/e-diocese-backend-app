@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import nodemailer from 'nodemailer'
-import { mail, sendgrid, mailConfigs } from '~/config'
+import { mail, sendgrid, mailConfigs } from '../../config'
 
 // const sgMail = require('@sendgrid/mail')
 

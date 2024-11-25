@@ -1,4 +1,4 @@
-import Image from '~/models/image'
+import Image from '../../../models/image'
 
 export default async ({ bodymen: { body }, user }, res, next) => {
     try {

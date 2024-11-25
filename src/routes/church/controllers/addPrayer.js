@@ -1,6 +1,6 @@
-import Priere from '~/models/priere'
-import Transaction from '~/models/transaction'
-import PrayerPrice from '~/models/prayerPrice'
+import Priere from '../../../models/priere'
+import Transaction from '../../../models/transaction'
+import PrayerPrice from '../../../models/prayerPrice'
 import * as cinetpay from '../../../services/cinetpay'
 
 export default async ({ bodymen: { body }, user }, res, next) => {

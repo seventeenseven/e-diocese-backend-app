@@ -1,49 +1,54 @@
 import { CinetpayError } from './error'
-import request from 'request-promise'
+import axios from 'axios';
 import { cinetpay, publicHost } from '../../config'
 
 const { host, apiKey, siteId } = cinetpay
 
-export const getPayStatus = ({ transactionId }) =>
-  request({
-    uri: `${host}/payment/check`,
-    method: 'POST',
-    headers: {
-      'content-type': 'application/x-www-form-urlencoded'
-    },
-    json: true,
-    form: {
-      transaction_id: transactionId,
-      site_id: siteId,
-      apikey: apiKey
-    }
-  }).catch((err) =>
+export const getPayStatus = async ({ transactionId }) =>
+  {try{
+     const response = await axios.post(`${host}/payment/check`,{ 
+      headers: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      json: true,
+      form: {
+        transaction_id: transactionId,
+        site_id: siteId,
+        apikey: apiKey
+      }
+    });
+  }catch(err){
     Promise.reject(new CinetpayError('Get pay status error', err))
-  )
+  }
+}
 
-export const initiatePayment = ({
+export const initiatePayment = async ({
   transactionId,
   amount,
   currency,
   description
-}) =>
-  request({
-    uri: `${host}/payment`,
-    method: 'POST',
-    headers: {
-      'content-type': 'application/x-www-form-urlencoded'
-    },
-    json: true,
-    form: {
-      transaction_id: transactionId,
-      site_id: siteId,
-      apikey: apiKey,
-      amount,
-      currency,
-      description,
-      notify_url: `${publicHost}/church/cinetpay/notify`,
-      return_url: `${publicHost}/church/cinetpay/notify`
-    }
-  }).catch((err) =>
-    Promise.reject(new CinetpayError('initiate payment error', err))
-  )
+}) => {
+  try {
+    const response = await axios.post(
+      `${host}/payment`,
+      {
+        transaction_id: transactionId,
+        site_id: siteId,
+        apikey: apiKey,
+        amount,
+        currency,
+        description,
+        notify_url: `${publicHost}/church/cinetpay/notify`,
+        return_url: `${publicHost}/church/cinetpay/notify`
+      },
+      {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        }
+      }
+    );
+    return response.data;
+  } catch (err) {
+    throw new CinetpayError('initiate payment error', err);
+  }
+};

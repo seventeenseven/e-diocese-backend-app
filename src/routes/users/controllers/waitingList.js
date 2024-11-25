@@ -1,4 +1,4 @@
-import WaitinglistUser from '~/models/waitinglistUser'
+import WaitinglistUser from '../../../models/waitinglistUser'
 
 export default async ({ bodymen: { body } }, res, next) => {
   try {

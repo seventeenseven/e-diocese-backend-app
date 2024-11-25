@@ -1,11 +1,12 @@
-import Session from '~/models/session'
-import publicIp from 'public-ip'
-import { sign } from '~/services/jwt'
-import { security } from '~/config'
+import Session from '../../../models/session'
+import { sign } from '../../../services/jwt'
+import { security } from '../../../config'
+import { publicIpv4 } from 'public-ip';
 
 export default async ({ bodymen: { body }, useragent, headers }, res, next) => {
+  console.log("In login controller")
   try {
-    const ipv4 = await publicIp.v4()
+    const ipv4 = await publicIpv4();
     let ip
     if (process.env.NODE_ENV === 'production') {
       ip = headers['x-forwarded-for']
@@ -22,6 +23,8 @@ export default async ({ bodymen: { body }, useragent, headers }, res, next) => {
       token
     })
   } catch (err) {
+    console.log("Error in login: ", err);
+    
     return next(err)
   }
 }

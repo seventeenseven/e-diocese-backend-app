@@ -1,6 +1,6 @@
 import Priere from '../../../../models/priere'
 import Donation from '../../../../models/donation'
-import { HttpError } from '~/services/error'
+import { HttpError } from '../../../../services/error'
 import moment from 'moment'
 import mongoose from 'mongoose'
 

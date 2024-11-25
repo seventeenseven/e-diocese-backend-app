@@ -1,4 +1,4 @@
-import { schema } from '~/models/waitinglistUser'
+import { schema } from '../../../models/waitinglistUser'
 
 const { email, phone } = schema.tree
 

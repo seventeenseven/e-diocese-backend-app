@@ -17,16 +17,16 @@ import {
   verifyCcodeAndReset,
   loginOrRegisterWithGoogle,
   deleteAccount
-} from './controllers'
+} from './controllers/index.js'
 import { middleware as body } from 'bodymen'
 import { Router } from 'express'
-import { token, master } from '~/services/passport'
-import { createUserDto } from './dto/createUserDto'
-import { createUserWaitingDto } from './dto/createUserWaitingDto'
-import { updatePasswordDto } from './dto/updatePasswordDto'
-import { updateMeDto, email } from './dto/updateMeDto'
-import { contactDto } from './dto/contactDto'
-import { schema } from '../../models/user'
+import { token, master } from '../../services/passport/index.js'
+import { createUserDto } from './dto/createUserDto.js'
+import { createUserWaitingDto } from './dto/createUserWaitingDto.js'
+import { updatePasswordDto } from './dto/updatePasswordDto.js'
+import { updateMeDto, email } from './dto/updateMeDto.js'
+import { contactDto } from './dto/contactDto.js'
+import { schema } from '../../models/user/index.js'
 
 const router = new Router()
 

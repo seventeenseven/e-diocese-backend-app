@@ -1,12 +1,13 @@
-import User from '~/models/user'
-// import { sign } from '~/services/jwt'
+import User from '../../../models/user'
+// import { sign } from '../../../services/jwt'
 import { sendCode } from '../../../services/orangeKotaci'
-// import publicIp from 'public-ip'
-// import Session from '~/models/session'
+// import Session from '../../../models/session'
+//import {publicIpv4} from 'public-ip';
+
 
 export default async ({ bodymen: { body }, useragent, headers }, res, next) => {
   try {
-    // const ipv4 = await publicIp.v4()
+    // const ipv4 = await publicIpv4()
     // let ip
     // if (process.env.NODE_ENV === 'production') {
     //   ip = headers['x-forwarded-for']

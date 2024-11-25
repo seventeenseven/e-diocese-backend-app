@@ -1,6 +1,6 @@
 import Church from '../../../../models/church'
-import { HttpError } from '~/services/error'
-import { hashPlainPassword } from '~/services/tokens'
+import { HttpError } from '../../../../services/error'
+import { hashPlainPassword } from '../../../../services/tokens'
 import { storeLogger } from '../../../../helpers'
 
 export default async ({ bodymen: { body }, user, params }, res, next) => {

@@ -1,5 +1,5 @@
-import Transaction from '~/models/transaction'
-import Donation from '~/models/donation'
+import Transaction from '../../../models/transaction'
+import Donation from '../../../models/donation'
 import * as cinetpay from '../../../services/cinetpay'
 
 export default async ({ bodymen: { body }, user }, res, next) => {

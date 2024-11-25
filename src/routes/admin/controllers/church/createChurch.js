@@ -1,5 +1,5 @@
 import Church from '../../../../models/church'
-import { HttpError } from '~/services/error'
+import { HttpError } from '../../../../services/error'
 import { storeLogger } from '../../../../helpers'
 
 export default async ({ bodymen: { body }, user, params }, res, next) => {

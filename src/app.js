@@ -1,12 +1,12 @@
 import http from 'http'
-import { mongo, apiRoot } from '~/config'
-import mongoose from '~/services/mongoose'
-import express from '~/services/express'
-import routes from '~/routes'
-import registerHandlers from '~/events'
+import { mongo, apiRoot } from './config.js'
+import { mongoose } from './services/mongoose/index.js'
+import { express } from './services/express/index.js'
+import { router } from './routes/index.js'
+import registerHandlers from './events.js'
 
 const PORT = process.env.PORT || 5000
-const app = express(apiRoot, routes)
+const app = express(apiRoot, router)
 
 const server = http.createServer(app)
 

@@ -105,7 +105,18 @@ const config = {
       uri: process.env.MONGODB_URI || requireProcessEnv('MONGODB_PROD_URI'),
       options: {}
     }
-  }
+  },
+  loaders: [
+    {
+    test: /.js$/,
+    loader: 'babel-loader',
+    include: [
+    path.resolve(__dirname, 'test'),
+    path.resolve(__dirname, 'src')
+    ],
+    exclude: /node_modules/
+    },
+  ]
 }
 
 module.exports = Object.assign(config.all, config[config.all.env])

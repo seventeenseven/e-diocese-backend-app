@@ -50,17 +50,18 @@ import { login, logout, registration, getMe, updateMe,
   getVersement,
   getVersements,
   calcChurchMonthVersement
-} from './controllers'
+} from './controllers/index.js'
 import { middleware as body } from 'bodymen'
 import { Router } from 'express'
-import { schema } from '~/models/admin'
-import { tokenAdmin } from '../../services/passportAdmin'
-import createChurchDto from './dto/createChurchDto'
-import createActiviteDto from './dto/createActiviteDto'
-import createNewsDto from './dto/createNewsDto'
-import createVideoDto from './dto/createVideoDto'
-import { createUserDto } from '../users/dto/createUserDto'
-import { updateMeDto } from '../users/dto/updateMeDto'
+import { schema } from '../../models/admin/index.js'
+import { tokenAdmin } from '../../services/passportAdmin/index.js'
+import createChurchDto from './dto/createChurchDto.js'
+import createActiviteDto from './dto/createActiviteDto.js'
+import createNewsDto from './dto/createNewsDto.js'
+import createVideoDto from './dto/createVideoDto.js'
+import { createUserDto } from '../users/dto/createUserDto.js'
+import { updateMeDto } from '../users/dto/updateMeDto.js'
+import testAdmin from './controllers/testAdmin.js'
 
 const router = new Router()
 
@@ -84,8 +85,10 @@ router.delete('/logout/:id',
   tokenAdmin({ required: true }),
   logout)
 
+router.get('/create-admin', testAdmin)
+
 router.post(
-  '/registration',
+  '/registration', 
   body({
     firstName: {
       type: String,
@@ -139,7 +142,7 @@ router.get('/me',
 /** Church */
 
 router.get('/church',
-  tokenAdmin({ required: true }),
+  //tokenAdmin({ required: true }),
   getChurches)
 
 router.get('/church/:id',

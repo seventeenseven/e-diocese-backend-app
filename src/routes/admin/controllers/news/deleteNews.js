@@ -1,6 +1,6 @@
 import News from '../../../../models/news'
 import NewsFavoris from '../../../../models/newsFavoris'
-import { HttpError } from '~/services/error'
+import { HttpError } from '../../../../services/error'
 import { storeLogger } from '../../../../helpers'
 
 export default async ({ user, params }, res, next) => {
