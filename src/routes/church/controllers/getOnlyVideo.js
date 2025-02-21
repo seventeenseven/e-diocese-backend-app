@@ -1,5 +1,5 @@
-import Video from '../../../models/video'
-import VideoFavoris from '../../../models/videoFavoris'
+import Video from '../../../models/video/index.js'
+import VideoFavoris from '../../../models/videoFavoris/index.js'
 
 export default async ({ user, params }, res, next) => {
   try {

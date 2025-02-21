@@ -1,6 +1,6 @@
 import mongoose, { Schema } from 'mongoose'
-import { string } from '../../helpers'
-import { hashPlainPassword } from '../../services/tokens'
+import { string } from '../../helpers/index.js'
+import { hashPlainPassword } from '../../services/tokens/index.js'
 
 const churchSchema = new Schema(
   {

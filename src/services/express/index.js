@@ -10,6 +10,8 @@ import { compile, headersSent } from '../../utils/morgan/index.js'
 import { errorHandler, initLanguage } from '../../middlewares/index.js'
 import { env } from '../../config.js'
 import i18n from '../../services/i18n/index.js'
+import path from "path"
+import { fileURLToPath } from "url"
 // import * as Sentry from '@sentry/node'
 
 const addRequestId = require('express-request-id')()
@@ -18,6 +20,9 @@ const userAgent = require('express-useragent')
 
 // Sentry setup
 // Sentry.init({dsn: sentry.url})
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 export default (apiRoot, routes) => {
   const app = express()
@@ -72,3 +77,5 @@ export default (apiRoot, routes) => {
 
   return app
 }
+
+

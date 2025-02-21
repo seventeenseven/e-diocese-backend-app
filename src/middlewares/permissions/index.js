@@ -1,5 +1,5 @@
 import _ from 'lodash'
-import { HttpError } from '../../services/error'
+import { HttpError } from '../../services/error/index.js'
 
 export default (permissions = {}) => async ({ user }, res, next) => {
   try {

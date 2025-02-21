@@ -1,7 +1,7 @@
-import Session from '../../../models/session'
+import Session from '../../../models/session/index.js'
 import {publicIpv4} from 'public-ip';
-import { sign } from '../../../services/jwt'
-import { security } from '../../../config'
+import { sign } from '../../../services/jwt/index.js'
+import { security } from '../../../config.js'
 
 export default async ({ bodymen: { body }, useragent, headers }, res, next) => {
   try {

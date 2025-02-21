@@ -1,4 +1,4 @@
-import Session from '../../../models/session'
+import Session from '../../../models/session/index.js'
 
 export default async ({ user, params }, res, next) => {
   try {

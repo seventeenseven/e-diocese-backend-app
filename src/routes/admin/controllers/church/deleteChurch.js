@@ -1,7 +1,7 @@
-import Church from '../../../../models/church'
-import ChurchFavoris from '../../../../models/churchFavoris'
-import { HttpError } from '../../../../services/error'
-import { storeLogger } from '../../../../helpers'
+import Church from '../../../../models/church/index.js'
+import ChurchFavoris from '../../../../models/churchFavoris/index.js'
+import { HttpError } from '../../../../services/error/index.js'
+import { storeLogger } from '../../../../helpers/index.js'
 
 export default async ({ user, params }, res, next) => {
   try {

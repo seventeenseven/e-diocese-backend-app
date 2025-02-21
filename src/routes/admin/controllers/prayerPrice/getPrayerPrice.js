@@ -1,5 +1,5 @@
-import PrayerPrice from '../../../../models/prayerPrice'
-import { storeLogger } from '../../../../helpers'
+import PrayerPrice from '../../../../models/prayerPrice/index.js'
+import { storeLogger } from '../../../../helpers/index.js'
 
 export default async ({ user }, res, next) => {
   try {

@@ -1,6 +1,6 @@
-import PrayerPrice from '../../../../models/prayerPrice'
-import { HttpError } from '../../../../services/error'
-import { storeLogger } from '../../../../helpers'
+import PrayerPrice from '../../../../models/prayerPrice/index.js'
+import { HttpError } from '../../../../services/error/index.js'
+import { storeLogger } from '../../../../helpers/index.js'
 
 export default async ({ bodymen: { body }, user, params }, res, next) => {
   try {

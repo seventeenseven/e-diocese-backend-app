@@ -1,6 +1,6 @@
-import login from './login'
-import logout from './logout'
-import sendVerificationCode from './send-verification-code'
+import login from './login.js'
+import logout from './logout.js'
+import sendVerificationCode from './send-verification-code.js'
 
 export {
   login,

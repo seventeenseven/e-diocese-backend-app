@@ -1,12 +1,12 @@
 import mongoose, { Schema } from 'mongoose'
-import { string } from '../../helpers'
-import { hashPlainPassword } from '../../services/tokens'
+import { string } from '../../helpers/index.js'
+import { hashPlainPassword } from '../../services/tokens/index.js'
 ///home/jane/Work/tuto-flutter/E-diocese/e-diocese-backend-app/src/models/user/
-import { HttpError } from '../../services/error'
-import i18n from '../../services/i18n'
+import { HttpError } from '../../services/error/index.js'
+import i18n from '../../services/i18n/index.js'
 import moment from 'moment'
-import generateVerificationCode from '../../utils/generateVerificationCode'
-import { getCurrencyByCountryCode } from '../../services/countries'
+import generateVerificationCode from '../../utils/generateVerificationCode/index.js'
+import { getCurrencyByCountryCode } from '../../services/countries/index.js'
 
 const userSchema = new Schema(
   {
@@ -226,6 +226,12 @@ userSchema.statics = {
       emailVerified: true
     })
   }
+}
+
+export const UserType = {
+  craftsman: 'craftsman',
+  client: 'client',
+  admin: 'admin',
 }
 
 const model = mongoose.model('User', userSchema)

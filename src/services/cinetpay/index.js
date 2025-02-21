@@ -1,12 +1,12 @@
-import { CinetpayError } from './error'
+import { CinetpayError } from './error/index.js'
 import axios from 'axios';
-import { cinetpay, publicHost } from '../../config'
+import { cinetpay, publicHost } from '../../config.js'
 
 const { host, apiKey, siteId } = cinetpay
 
 export const getPayStatus = async ({ transactionId }) =>
   {try{
-     const response = await axios.post(`${host}/payment/check`,{ 
+     const response = await axios.post(`${host}/payment/check`,{
       headers: {
         'content-type': 'application/x-www-form-urlencoded'
       },

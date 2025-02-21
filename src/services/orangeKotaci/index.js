@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { orangeKotaci } from '../../config'
+import { orangeKotaci } from '../../config.js'
 
 const { host } = orangeKotaci
 

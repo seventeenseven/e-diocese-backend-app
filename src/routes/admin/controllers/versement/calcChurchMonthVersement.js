@@ -1,6 +1,6 @@
-import Priere from '../../../../models/priere'
-import Donation from '../../../../models/donation'
-import { HttpError } from '../../../../services/error'
+import Priere from '../../../../models/priere/index.js'
+import Donation from '../../../../models/donation/index.js'
+import { HttpError } from '../../../../services/error/index.js'
 import moment from 'moment'
 import mongoose from 'mongoose'
 

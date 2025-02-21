@@ -1,6 +1,6 @@
-import Church from '../../../../models/church'
-import { HttpError } from '../../../../services/error'
-import { storeLogger } from '../../../../helpers'
+import Church from '../../../../models/church/index.js'
+import { HttpError } from '../../../../services/error/index.js'
+import { storeLogger } from '../../../../helpers/index.js'
 
 export default async ({ bodymen: { body }, user, params }, res, next) => {
   try {

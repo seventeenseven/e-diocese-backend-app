@@ -1,9 +1,9 @@
 import passport from 'passport'
 import { Strategy as BearerStrategy } from 'passport-http-bearer'
 import { Strategy as JwtStrategy, ExtractJwt } from 'passport-jwt'
-import { jwtSecret, masterKey } from '../../config'
-import Admin from '../../models/admin'
-import Church from '../../models/church'
+import { jwtSecret, masterKey } from '../../config.js'
+import Admin from '../../models/admin/index.js'
+import Church from '../../models/church/index.js'
 
 export const master = () =>
   passport.authenticate('master', { session: false })

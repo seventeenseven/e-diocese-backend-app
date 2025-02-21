@@ -1,4 +1,4 @@
-import PrayerPrice from '../../../models/prayerPrice'
+import PrayerPrice from '../../../models/prayerPrice/index.js'
 
 export default async ({ bodymen: { body } }, res, next) => {
   try {

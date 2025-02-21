@@ -1,5 +1,5 @@
-import ParticipateActivity from '../../../../models/participateActivity'
-import { storeLogger } from '../../../../helpers'
+import ParticipateActivity from '../../../../models/participateActivity/index.js'
+import { storeLogger } from '../../../../helpers/index.js'
 
 export default async ({ user }, res, next) => {
   try {

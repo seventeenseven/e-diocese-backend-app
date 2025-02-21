@@ -1,5 +1,5 @@
-import ReadingDay from '../../../../models/readingDay'
-import { storeLogger } from '../../../../helpers'
+import ReadingDay from '../../../../models/readingDay/index.js'
+import { storeLogger } from '../../../../helpers/index.js'
 
 export default async ({ user }, res, next) => {
   try {

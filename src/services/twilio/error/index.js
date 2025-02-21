@@ -1,5 +1,5 @@
 import util from 'util'
-import { ServiceError } from '../../error'
+import { ServiceError } from '../../error/index.js'
 
 const TwilioError = function () {
   ServiceError.apply(this, arguments)

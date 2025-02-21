@@ -1,4 +1,4 @@
-import Priere from '../../../models/priere'
+import Priere from '../../../models/priere/index.js'
 
 export default async ({ user }, res, next) => {
   try {

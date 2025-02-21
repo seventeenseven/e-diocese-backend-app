@@ -1,8 +1,8 @@
-import Image from '../../../models/image'
+import Image from '../../../models/image/index.js'
 
 export default async ({ bodymen: { body }, user }, res, next) => {
     try {
-      
+
       const findImages = await Image.findOne({ user: user.id })
       if (findImages) {
         await Image.updateOne({ user: user.id }, { $set: body },)
@@ -20,4 +20,3 @@ export default async ({ bodymen: { body }, user }, res, next) => {
       return next(err)
     }
   }
-  

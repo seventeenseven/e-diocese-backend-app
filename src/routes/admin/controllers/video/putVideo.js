@@ -1,6 +1,6 @@
-import Video from '../../../../models/video'
-import { HttpError } from '../../../../services/error'
-import { storeLogger } from '../../../../helpers'
+import Video from '../../../../models/video/index.js'
+import { HttpError } from '../../../../services/error/index.js'
+import { storeLogger } from '../../../../helpers/index.js'
 
 export default async ({ bodymen: { body }, user, params }, res, next) => {
   try {

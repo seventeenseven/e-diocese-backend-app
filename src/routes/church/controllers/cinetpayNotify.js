@@ -1,8 +1,8 @@
-import Transaction from '../../../models/transaction'
-import User from '../../../models/user'
-import * as cinetpay from '../../../services/cinetpay'
-import Priere from '../../../models/priere'
-import Donation from '../../../models/donation'
+import Transaction from '../../../models/transaction/index.js'
+import User from '../../../models/user/index.js'
+import * as cinetpay from '../../../services/cinetpay/index.js'
+import Priere from '../../../models/priere/index.js'
+import Donation from '../../../models/donation/index.js'
 
 export default async (req, res, next) => {
   let transaction

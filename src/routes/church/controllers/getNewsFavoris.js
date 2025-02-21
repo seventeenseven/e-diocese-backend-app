@@ -1,4 +1,4 @@
-import NewsFavoris from '../../../models/newsFavoris'
+import NewsFavoris from '../../../models/newsFavoris/index.js'
 
 export default async ({ user }, res, next) => {
   try {

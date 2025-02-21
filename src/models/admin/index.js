@@ -1,9 +1,9 @@
 import { compareSync } from 'bcrypt'
 import mongoose, { Schema } from 'mongoose'
-import { string } from '../../helpers'
-import { hashPlainPassword } from '../../services/tokens'
-import { HttpError } from '../../services/error'
-import i18n from '../../services/i18n'
+import { string } from '../../helpers/index.js'
+import { hashPlainPassword } from '../../services/tokens/index.js'
+import { HttpError } from '../../services/error/index.js'
+import i18n from '../../services/i18n/index.js'
 
 const adminSchema = new Schema(
   {

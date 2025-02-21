@@ -1,5 +1,11 @@
 import _ from 'lodash'
-import allCountries from './countries.json'
+//import allCountries from './countries.json'
+//import allCountries from "./countries.json" assert { type: "json" };
+
+import fs from "fs";
+
+const allCountries = JSON.parse(fs.readFileSync(new URL("./countries.json", import.meta.url), "utf8"));
+
 const euList = [
   { country: 'Austria', code: 'AT', vat: 20 },
   { country: 'Belgium', code: 'BE', vat: 21 },

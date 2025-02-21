@@ -1,5 +1,5 @@
-import Admin from '../../../models/admin'
-import generateVerificationCode from '../../../utils/generateVerificationCode'
+import Admin from '../../../models/admin/index.js'
+import generateVerificationCode from '../../../utils/generateVerificationCode/index.js'
 export default async ( res, next) => {
     try {
         await Admin.createAdmin({

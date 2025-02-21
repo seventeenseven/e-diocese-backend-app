@@ -1,4 +1,4 @@
-import Comment from '../../../models/comment'
+import Comment from '../../../models/comment/index.js'
 
 export default async ({ bodymen: { body }, user }, res, next) => {
   try {

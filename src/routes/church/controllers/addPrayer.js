@@ -1,7 +1,7 @@
-import Priere from '../../../models/priere'
-import Transaction from '../../../models/transaction'
-import PrayerPrice from '../../../models/prayerPrice'
-import * as cinetpay from '../../../services/cinetpay'
+import Priere from '../../../models/priere/index.js'
+import Transaction from '../../../models/transaction/index.js'
+import PrayerPrice from '../../../models/prayerPrice/index.js'
+import * as cinetpay from '../../../services/cinetpay/index.js'
 
 export default async ({ bodymen: { body }, user }, res, next) => {
   try {

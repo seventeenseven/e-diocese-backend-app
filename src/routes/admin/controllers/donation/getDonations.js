@@ -1,5 +1,5 @@
-import Donation from '../../../../models/donation'
-import { storeLogger } from '../../../../helpers'
+import Donation from '../../../../models/donation/index.js'
+import { storeLogger } from '../../../../helpers/index.js'
 
 export default async ({ user }, res, next) => {
   try {

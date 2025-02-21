@@ -1,12 +1,12 @@
-import generateUsers from './generateUsers'
-import storeNotifications from './storeNotifications'
-import storeChurch from './storeChurch'
-import storeActivites from './storeActivites'
-import storeNews from './storeNews'
-import storeVideo from './storeVideo'
-import storePrice from './storePrice'
-import donationPrice from './donationPrice'
-import storeReading from './storeReading'
+import generateUsers from './generateUsers.js'
+import storeNotifications from './storeNotifications.js'
+import storeChurch from './storeChurch.js'
+import storeActivites from './storeActivites.js'
+import storeNews from './storeNews.js'
+import storeVideo from './storeVideo.js'
+import storePrice from './storePrice.js'
+import donationPrice from './donationPrice.js'
+import storeReading from './storeReading.js'
 
 export {
   generateUsers,

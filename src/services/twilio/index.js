@@ -1,6 +1,6 @@
 import Twilio from 'twilio'
-import { twilio as twilioCofig } from '../../config'
-import { TwilioError } from './error'
+import { twilio as twilioCofig } from '../../config.js'
+import { TwilioError } from './error/index.js'
 
 const { accountSid, authToken } = twilioCofig
 const client = new Twilio(accountSid, authToken)

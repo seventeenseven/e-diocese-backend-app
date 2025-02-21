@@ -1,4 +1,4 @@
-import { schema } from '../../../models/user'
+import { schema } from '../../../models/user/index.js'
 
 export const { email, phone } = schema.tree
 

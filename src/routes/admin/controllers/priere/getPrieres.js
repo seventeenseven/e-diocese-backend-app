@@ -1,5 +1,5 @@
-import Priere from '../../../../models/priere'
-import { storeLogger } from '../../../../helpers'
+import Priere from '../../../../models/priere/index.js'
+import { storeLogger } from '../../../../helpers/index.js'
 
 export default async ({ user }, res, next) => {
   try {

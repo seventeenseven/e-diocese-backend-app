@@ -1,7 +1,7 @@
-import Activite from '../../../../models/activite'
-import ActiviteFavoris from '../../../../models/activiteFavoris'
-import { HttpError } from '../../../../services/error'
-import { storeLogger } from '../../../../helpers'
+import Activite from '../../../../models/activite/index.js'
+import ActiviteFavoris from '../../../../models/activiteFavoris/index.js'
+import { HttpError } from '../../../../services/error/index.js'
+import { storeLogger } from '../../../../helpers/index.js'
 
 export default async ({ user, params }, res, next) => {
   try {

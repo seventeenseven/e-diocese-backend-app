@@ -1,25 +1,27 @@
 import Promise from 'bluebird'
 import mongoose from 'mongoose'
-import { mongo } from '../../config.js'
-
-Object.keys(mongo.options).forEach((key) => {
-  mongoose.set(key, mongo.options[key])
-})
+import config from '../../config.js'
 
 mongoose.Promise = Promise
-/* istanbul ignore next */
-mongoose.Types.ObjectId.prototype.view = function () {
-  return { id: this.toString() }
+
+const connectDB = async () => {
+  try {
+    await mongoose.connect(config.mongo.uri, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      ...config.mongo.options
+    })
+    console.log('Database connected')
+  } catch (err) {
+    console.error('MongoDB connection error:', err)
+    process.exit(-1)
+  }
 }
 
-mongoose.connection.once('open', _ => {
-  console.log('Database connected')
-})
-
-/* istanbul ignore next */
 mongoose.connection.on('error', (err) => {
-  console.error('MongoDB connection error: ' + err)
+  console.error('MongoDB connection error:', err)
   process.exit(-1)
 })
 
+export { connectDB }
 export default mongoose

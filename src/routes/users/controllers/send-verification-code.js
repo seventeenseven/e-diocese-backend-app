@@ -1,8 +1,8 @@
-import { HttpError } from '../../../services/error'
-import { sendMail } from '../../../services/mailer'
-import i18n from '../../../services/i18n'
+import { HttpError } from '../../../services/error/index.js'
+import { sendMail } from '../../../services/mailer/index.js'
+import i18n from '../../../services/i18n/index.js'
 import ejs from 'ejs'
-import User from '../../../models/user'
+import User from '../../../models/user/index.js'
 
 export default async ({ bodymen: { body } }, res, next) => {
   try {

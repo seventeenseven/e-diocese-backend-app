@@ -1,7 +1,7 @@
-import User from '../../../../models/user'
-import ParticipateActivity from '../../../../models/participateActivity'
-import { HttpError } from '../../../../services/error'
-import { storeLogger } from '../../../../helpers'
+import User from '../../../../models/user/index.js'
+import ParticipateActivity from '../../../../models/participateActivity/index.js'
+import { HttpError } from '../../../../services/error/index.js'
+import { storeLogger } from '../../../../helpers/index.js'
 
 export default async ({ user, params }, res, next) => {
   try {

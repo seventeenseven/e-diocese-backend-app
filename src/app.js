@@ -1,8 +1,10 @@
 import http from 'http'
 import { mongo, apiRoot } from './config.js'
-import { mongoose } from './services/mongoose/index.js'
-import { express } from './services/express/index.js'
-import { router } from './routes/index.js'
+
+import  mongoose from './services/mongoose/index.js'
+//import express from './services/express/index.js'
+import express from 'express'
+import router from './routes/index.js'
 import registerHandlers from './events.js'
 
 const PORT = process.env.PORT || 5000

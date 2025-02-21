@@ -1,6 +1,6 @@
-import Priere from '../../../../models/priere'
-import { HttpError } from '../../../../services/error'
-import { storeLogger } from '../../../../helpers'
+import Priere from '../../../../models/priere/index.js'
+import { HttpError } from '../../../../services/error/index.js'
+import { storeLogger } from '../../../../helpers/index.js'
 
 export default async ({ user, params }, res, next) => {
   try {

@@ -1,4 +1,4 @@
-import Church from '../../../models/church'
+import Church from '../../../models/church/index.js'
 
 export default async ({ bodymen: { body }, user, query }, res, next) => {
   try {

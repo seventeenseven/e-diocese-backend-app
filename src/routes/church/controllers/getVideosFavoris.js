@@ -1,4 +1,4 @@
-import VideoFavoris from '../../../models/videoFavoris'
+import VideoFavoris from '../../../models/videoFavoris/index.js'
 
 export default async ({ user }, res, next) => {
   try {

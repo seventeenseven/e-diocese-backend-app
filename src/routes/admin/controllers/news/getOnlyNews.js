@@ -1,5 +1,5 @@
-import News from '../../../../models/news'
-import { storeLogger } from '../../../../helpers'
+import News from '../../../../models/news/index.js'
+import { storeLogger } from '../../../../helpers/index.js'
 
 export default async ({ user, params }, res, next) => {
   try {

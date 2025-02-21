@@ -1,6 +1,6 @@
-import Session from '../../../models/session'
-import { sign } from '../../../services/jwt'
-import { security } from '../../../config'
+import Session from '../../../models/session/index.js'
+import { sign } from '../../../services/jwt/index.js'
+import { security } from '../../../config.js'
 import { publicIpv4 } from 'public-ip';
 
 export default async ({ bodymen: { body }, useragent, headers }, res, next) => {
@@ -24,7 +24,7 @@ export default async ({ bodymen: { body }, useragent, headers }, res, next) => {
     })
   } catch (err) {
     console.log("Error in login: ", err);
-    
+
     return next(err)
   }
 }

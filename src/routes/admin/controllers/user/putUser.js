@@ -1,7 +1,7 @@
-import User from '../../../../models/user'
-import { HttpError } from '../../../../services/error'
-import i18n from '../../../../services/i18n'
-import { storeLogger } from '../../../../helpers'
+import User from '../../../../models/user/index.js'
+import { HttpError } from '../../../../services/error/index.js'
+import i18n from '../../../../services/i18n/index.js'
+import { storeLogger } from '../../../../helpers/index.js'
 
 export default async ({ bodymen: { body }, user, params }, res, next) => {
   try {

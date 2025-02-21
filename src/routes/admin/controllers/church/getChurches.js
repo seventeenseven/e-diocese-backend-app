@@ -1,5 +1,5 @@
-import Church from '../../../../models/church'
-import { storeLogger } from '../../../../helpers'
+import Church from '../../../../models/church/index.js'
+import { storeLogger } from '../../../../helpers/index.js'
 
 export default async ({ user }, res, next) => {
   try {

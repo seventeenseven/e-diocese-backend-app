@@ -1,4 +1,4 @@
-import Activite from '../../../models/activite'
+import Activite from '../../../models/activite/index.js'
 
 export default async ({ user, params }, res, next) => {
   try {

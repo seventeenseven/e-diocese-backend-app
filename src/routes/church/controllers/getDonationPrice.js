@@ -1,4 +1,4 @@
-import DonationPrice from '../../../models/donationPrice'
+import DonationPrice from '../../../models/donationPrice/index.js'
 
 export default async ({ user }, res, next) => {
   try {

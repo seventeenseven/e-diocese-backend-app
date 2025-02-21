@@ -1,4 +1,4 @@
-import getNotifications from './getNotifications'
+import getNotifications from './getNotifications.js'
 
 export {
   getNotifications

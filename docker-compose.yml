@@ -4,6 +4,8 @@ services:
     container_name: e-diocese-backend_app
     restart: always
     build: .
+    volumes:
+      - .:/usr/src/app
     command: npm run dev
     env_file:
     - .env
@@ -25,7 +27,7 @@ services:
       - 8.8.4.4
     volumes:
       - mongodata:/data/db
-    command: ["mongod", "--bind_ip", "0.0.0.0", "--auth"]  
+    command: ["mongod", "--bind_ip", "0.0.0.0", "--auth"]
 volumes:
   mongodata:
     driver: local

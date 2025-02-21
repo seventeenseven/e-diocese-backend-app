@@ -1,7 +1,7 @@
-import Video from '../../../../models/video'
-import VideoFavoris from '../../../../models/videoFavoris'
-import { HttpError } from '../../../../services/error'
-import { storeLogger } from '../../../../helpers'
+import Video from '../../../../models/video/index.js'
+import VideoFavoris from '../../../../models/videoFavoris/index.js'
+import { HttpError } from '../../../../services/error/index.js'
+import { storeLogger } from '../../../../helpers/index.js'
 
 export default async ({ user, params }, res, next) => {
   try {

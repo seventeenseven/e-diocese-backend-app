@@ -1,7 +1,7 @@
 import * as faker from 'faker'
-import User, { UserType } from '../../../models/user'
-import { string } from '../../../helpers'
-import generateVerificationCode from '../../../utils/generateVerificationCode'
+import User, { UserType } from '../../../models/user/index.js'
+import { string } from '../../../helpers/index.js'
+import generateVerificationCode from '../../../utils/generateVerificationCode/index.js'
 
 export default async (req, res, next) => {
   try {

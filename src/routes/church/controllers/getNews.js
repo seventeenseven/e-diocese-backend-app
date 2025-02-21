@@ -1,4 +1,4 @@
-import News from '../../../models/news'
+import News from '../../../models/news/index.js'
 
 export default async ({ user, query }, res, next) => {
   try {

@@ -1,5 +1,5 @@
-import Video from '../../../../models/video'
-import { storeLogger } from '../../../../helpers'
+import Video from '../../../../models/video/index.js'
+import { storeLogger } from '../../../../helpers/index.js'
 
 export default async ({ user }, res, next) => {
   try {

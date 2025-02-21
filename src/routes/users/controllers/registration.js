@@ -1,6 +1,6 @@
-import User from '../../../models/user'
+import User from '../../../models/user/index.js'
 // import { sign } from '../../../services/jwt'
-import { sendCode } from '../../../services/orangeKotaci'
+import { sendCode } from '../../../services/orangeKotaci/index.js'
 // import Session from '../../../models/session'
 //import {publicIpv4} from 'public-ip';
 

@@ -1,7 +1,7 @@
-import { HttpError } from '../../../services/error'
-import i18n from '../../../services/i18n'
-import User from '../../../models/user'
-import { sendCode } from '../../../services/orangeKotaci'
+import { HttpError } from '../../../services/error/index.js'
+import i18n from '../../../services/i18n/index.js'
+import User from '../../../models/user/index.js'
+import { sendCode } from '../../../services/orangeKotaci/index.js'
 
 export default async ({ bodymen: { body } }, res, next) => {
   try {

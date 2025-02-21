@@ -1,6 +1,6 @@
-import Activite from '../../../models/activite'
-import ActiviteFavoris from '../../../models/activiteFavoris'
-import ParticipateActivity from '../../../models/participateActivity'
+import Activite from '../../../models/activite/index.js'
+import ActiviteFavoris from '../../../models/activiteFavoris/index.js'
+import ParticipateActivity from '../../../models/participateActivity/index.js'
 
 export default async ({ user, params }, res, next) => {
   try {

@@ -1,4 +1,4 @@
-import ChurchFavoris from '../../../models/churchFavoris'
+import ChurchFavoris from '../../../models/churchFavoris/index.js'
 
 export default async ({ bodymen: { body }, user }, res, next) => {
   try {

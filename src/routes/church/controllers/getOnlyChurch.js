@@ -1,5 +1,5 @@
-import Church from '../../../models/church'
-import ChurchFavoris from '../../../models/churchFavoris'
+import Church from '../../../models/church/index.js'
+import ChurchFavoris from '../../../models/churchFavoris/index.js'
 
 export default async ({ user, params }, res, next) => {
   try {

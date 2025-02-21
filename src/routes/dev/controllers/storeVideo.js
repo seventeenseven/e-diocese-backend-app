@@ -1,4 +1,4 @@
-import Video from '../../../models/video'
+import Video from '../../../models/video/index.js'
 
 export default async ({ bodymen: { body } }, res, next) => {
   try {
