@@ -13,7 +13,7 @@ export default async ({ user }, res, next) => {
   try {
     let donation
     let intentions
-    const churchs = await Church.count({})
+    const churchs = await Church.count
     let activites
     let news
     let videos
@@ -24,10 +24,10 @@ export default async ({ user }, res, next) => {
         $group: {_id: '$isPaid', sum_val: {$sum: '$amount'}}
       }
       ])
-      intentions = await Priere.count({ isPaid: true })
-      activites = await Activite.count({})
-      news = await New.count({})
-      videos = await Video.count({})
+      intentions = await Priere.count
+      activites = await Activite.count
+      news = await New.count
+      videos = await Video.count
       amountIntentions = await Priere.aggregate([{
         $group: {_id: '$isPaid', sum_val: {$sum: '$amount'}}
       }

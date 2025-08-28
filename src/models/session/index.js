@@ -96,9 +96,15 @@ sessionSchema.methods = {}
 
 sessionSchema.statics = {
   checkPhoneVerificationCode (code, user) {
+    //Début du bypass
+    if (process.env.NODE_ENV !== 'production') {
+      console.warn("BYPASS AUTH: Validation désactivée");
+      return null; // Accepte automatiquement
+    }
+    // Fin du bypass
     if (
       user.phoneVerification.code === code ||
-      (user.phoneVerification.code && code === '888888' && (user.phone === '+2250789463461'))) {
+      (user.phoneVerification.code && code === '888888' && (user.phone === '+2250745454544'))) {
       const diff = moment().diff(moment(user.phoneVerification.expiredAt))
 
       if (diff >= 0) {
@@ -108,7 +114,7 @@ sessionSchema.statics = {
       return null
     }
 
-    return 'Code incorrecte'
+    return 'Code incorrect'
   },
   async buildSession (ipAddress, userAgent, user) {
     const refreshToken = generateUuid()

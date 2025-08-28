@@ -117,13 +117,16 @@ const config = {
   ],
 };
 
+export const env = config.all.env;
+const configEnv = config[env];
+
 // Exportation des constantes
-export const mongo = config.all.mongo;
+export const mongo = configEnv.mongo; //To change
 export const security = config.all.security;
 export const apiRoot = config.all.apiRoot;
 export const port = config.all.port;
 export const ip = config.all.ip;
-export const env = config.all.env;
+
 export const proxy = config.all.proxy;
 export const jwtSecret = config.all.jwtSecret;
 export const masterKey = config.all.masterKey;

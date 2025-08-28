@@ -94,7 +94,7 @@ const userSchema = new Schema(
     },
     country: {
       type: String,
-      match: /^[A-Z]{2}$/,
+      //match: /^[A-Z]{2}$/,
       required: true
     }
   },
@@ -191,6 +191,9 @@ userSchema.statics = {
     return this.findOne({ phone }).select('-__v')
   },
   async createUser (user) {
+    if (user.country) {
+        user.country = user.country.toUpperCase().substring(0, 2);
+    }
     const checkForUser = await this.findByEmail(user.email)
     if (checkForUser) {
       throw new HttpError(400, i18n.__('verifiedAccountAlreadyAssociated'))

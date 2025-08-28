@@ -14,7 +14,7 @@ export default async ({ bodymen: { body } }, res, next) => {
     // }
 
     const code = await user.setPhoneVerificationCode()
-
+    console.log("CODE : ",code)
     // ejs.renderFile(process.cwd() + '/src/views/mail-confirmation.ejs', { code: code }, function (err, data) {
     //   if (err) {
     //     return res.sendHttpError(new HttpError(400, i18n.__('sendEmailConfirmationCodeError')))
@@ -26,11 +26,11 @@ export default async ({ bodymen: { body } }, res, next) => {
     //   })
     // })
 
-    if (body.phone === '+2250789463461') {
+    if (body.phone === '+2250745454544') {
       return res.json({ success: true })
     }
 
-    await sendCode({ to: body.phone, code })
+    //await sendCode({ to: body.phone, code })
 
     return res.json({ success: true })
   } catch (err) {

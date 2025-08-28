@@ -32,7 +32,21 @@ const router = new Router()
 
 const { phone, country } = schema.tree
 
-router.post('/registration', body(createUserDto), registration)
+export const phoneNormalizer = (req, res, next) => {
+  if (req.body.phone) {
+    req.body.phone = req.body.phone.replace(/[^\d+]/g, '');
+  }
+  next();
+};
+
+export const countryNormalizer = (req, res, next) => {
+  if (req.body.country) {
+    req.body.country = req.body.country.toUpperCase().substring(0, 2);
+  }
+  next();
+};
+
+router.post('/registration', countryNormalizer, body(createUserDto), registration)
 router.get('/me', token({ required: true }), getMe)
 router.get('/:id', token({ required: true }), getUser)
 router.post('/waiting-list', body(createUserWaitingDto), waitingList)

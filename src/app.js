@@ -3,12 +3,12 @@ import { mongo, apiRoot } from './config.js'
 
 import  mongoose from './services/mongoose/index.js'
 //import express from './services/express/index.js'
-import express from 'express'
+import createApp from './services/express/index.js'
 import router from './routes/index.js'
 import registerHandlers from './events.js'
 
 const PORT = process.env.PORT || 5000
-const app = express(apiRoot, router)
+const app = createApp(apiRoot, router)
 
 const server = http.createServer(app)
 
@@ -21,5 +21,10 @@ setImmediate(() => {
 })
 
 registerHandlers(app)
+
+app.use((req, res, next) => {
+  console.log('Received data:', req.body);
+  next();
+});
 
 export default app

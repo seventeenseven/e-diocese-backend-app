@@ -19,7 +19,12 @@ router.use('/church', church)
 router.use('/admin', admin)
 
 // route test user
-router.get('/test', async (req, res, next) => {
+router.get('/test', (req, res) => {
+  res.json({ message: 'Test route works!' });
+});
+
+
+router.get('/test1', async (req, res, next) => {
   try {
     const response = await axios.get('https://api.ipify.org?format=json', {
       proxy: {
